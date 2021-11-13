@@ -1,11 +1,12 @@
 from datetime import datetime
-from genericpath import isdir
-import os
 from pynput import mouse, keyboard
 from threading import Thread
+import os
+
 
 class MyException(Exception):
   pass
+
 
 class InteractionLogger:
   
@@ -87,14 +88,9 @@ class InteractionLogger:
     else:
       self._kill_logger = False
 
-    if event_type in [
-      self._mouse_scoll_event_type,
-      self._mouse_move_event_type,
-      self._mouse_release_event_type,
-      self._mouse_press_event_type
-    ] and self._kill_logger:
+    if self._kill_logger:
       raise MyException()
-
+   
   def log_event(self, event, version='1'):
     timestamp = self.get_timestamp()
     target_log_file = self.build_log_file()
