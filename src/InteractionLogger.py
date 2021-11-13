@@ -46,6 +46,7 @@ class InteractionLogger:
       self._mouse_release_event_type,
       self._mouse_press_event_type
     )[pressed]
+    button = ('r', 'l')[button == mouse.Button.left]
     event = f'{event_type},{x},{y},{button}'
     self.log_event(event)
     self.handle_potential_kill(event_type)
