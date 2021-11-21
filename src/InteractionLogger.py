@@ -99,10 +99,10 @@ class InteractionLogger:
     version_tag = f'v{version}'
     timestamp_tag = f't{timestamp}'
 
-    content = ','.join([version_tag, timestamp_tag, event])
+    data = ','.join([version_tag, timestamp_tag, event])
     
     f = open(target_log_file, 'a')
-    f.write(content + '\n')
+    f.write(data + '\n')
     f.close()
 
   def build_log_file(self):
